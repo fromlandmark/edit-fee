@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Pseudo-seletores e Pseudo-estados - Documentação Técnica</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+   <link rel="stylesheet" href="styles.css">
+
+</head>
+<body class="template">
+
+  <h1>CSS Pseudo-seletores e Pseudo-estados</h1>
+
+  <p>Uma análise técnica dos pseudo-seletores e pseudo-estados em CSS, detalhando as suas propriedades, comportamentos e aplicações em implementações de interfaces web modernas.</p>
+
+  <h2>Definição e Scope</h2>
+  <p>Os pseudo-seletores e pseudo-estados são extensões da sintaxe de seletores CSS que permitem selecionar elementos baseados em critérios que transcendem a estrutura do documento DOM. Estes mecanismos oferecem seleção contextual, interativa e posicional sem necessidade de marcação adicional.</p>
+
+  <h2>Categorização Funcional</h2>
+  <p>Existem duas categorias principais de pseudo-seletores no CSS:</p>
+
+  <h3>Pseudo-classes</h3>
+  <p>Selecionam elementos baseados em estados, posições ou atributos que não são explicitamente definidos na estrutura do documento. São identificadas por dois-pontos (:) seguidos do identificador da pseudo-classe.</p>
+
+  <h3>Pseudo-elementos</h3>
+  <p>Permitem estilizar partes específicas de um elemento ou gerar conteúdo que não existe explicitamente no DOM. São identificados por dois dois-pontos (::) seguidos do identificador do pseudo-elemento.</p>
+
+  <h2>Pseudo-classes</h2>
+
+  <h3>Pseudo-classes de Estado Interativo</h3>
+  <p>Aplicam-se a elementos baseados na interação do utilizador.</p>
+
+  <h4><code>:hover</code></h4>
+  <p>Seleciona um elemento quando o ponteiro está sobre ele.</p>
+  <pre><code class="language-css">a:hover {
+  color: #ff5722;
+  text-decoration: underline;
+}</code></pre>
+
+  <h4><code>:active</code></h4>
+  <p>Seleciona um elemento quando está a ser ativado pelo utilizador (tipicamente durante o clique).</p>
+  <pre><code class="language-css">button:active {
+  transform: translateY(2px);
+  background-color: #0056b3;
+}</code></pre>
+
+  <h4><code>:focus</code></h4>
+  <p>Seleciona um elemento quando recebe o foco (via teclado ou rato).</p>
+  <pre><code class="language-css">input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+}</code></pre>
+
+  <h4><code>:focus-visible</code></h4>
+  <p>Seleciona um elemento quando recebe o foco e o User Agent determina que deve ser visualmente indicado.</p>
+  <pre><code class="language-css">button:focus-visible {
+  outline: 2px solid #4a90e2;
+  outline-offset: 2px;
+}</code></pre>
+
+  <h4><code>:focus-within</code></h4>
+  <p>Seleciona um elemento que recebeu o foco ou possui um descendente que recebeu o foco.</p>
+  <pre><code class="language-css">form:focus-within {
+  background-color: #f8f9fa;
+}</code></pre>
+
+  <h3>Pseudo-classes de Estado de Input</h3>
+  <p>Aplicam-se especificamente a elementos de formulário baseados no seu estado.</p>
+
+  <h4><code>:checked</code></h4>
+  <p>Seleciona elementos de input do tipo radio, checkbox ou option quando selecionados.</p>
+  <pre><code class="language-css">input[type="checkbox"]:checked {
+  background-color: #4caf50;
+}</code></pre>
+
+  <h4><code>:disabled</code> e <code>:enabled</code></h4>
+  <p>Selecionam elementos de formulário baseados no seu estado de disponibilidade.</p>
+  <pre><code class="language-css">input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+input:enabled {
+  background-color: #ffffff;
+}</code></pre>
+
+  <h4><code>:valid</code> e <code>:invalid</code></h4>
+  <p>Selecionam elementos de formulário baseados na validação do seu valor segundo restrições especificadas.</p>
+  <pre><code class="language-css">input:valid {
+  border-color: #4caf50;
+}
+
+input:invalid {
+  border-color: #f44336;
+}</code></pre>
+
+  <h4><code>:required</code> e <code>:optional</code></h4>
+  <p>Selecionam elementos de formulário baseados na sua obrigatoriedade.</p>
+  <pre><code class="language-css">input:required {
+  border-left: 4px solid #ff9800;
+}
+
+input:optional {
+  border-left: 1px solid #e0e0e0;
+}</code></pre>
+
+  <h3>Pseudo-classes Estruturais</h3>
+  <p>Selecionam elementos baseados na sua posição na estrutura do documento.</p>
+
+  <h4><code>:first-child</code> e <code>:last-child</code></h4>
+  <p>Selecionam elementos que são o primeiro ou último filho do seu parente.</p>
+  <pre><code class="language-css">li:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+li:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}</code></pre>
+
+  <h4><code>:nth-child()</code> e <code>:nth-last-child()</code></h4>
+  <p>Selecionam elementos baseados na sua posição entre os irmãos, aceitando fórmulas algébricas.</p>
+  <pre><code class="language-css">tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+li:nth-child(3n+1) {
+  clear: left;
+}
+
+/* Seleciona o terceiro elemento a contar do fim */
+li:nth-last-child(3) {
+  color: #e91e63;
+}</code></pre>
+
+  <h4><code>:nth-of-type()</code> e <code>:nth-last-of-type()</code></h4>
+  <p>Similares a <code>:nth-child()</code>, mas contabilizam apenas elementos do mesmo tipo.</p>
+  <pre><code class="language-css">p:nth-of-type(2) {
+  font-style: italic;
+}
+
+img:nth-of-type(odd) {
+  float: left;
+  margin-right: 10px;
+}</code></pre>
+
+  <h4><code>:only-child</code> e <code>:only-of-type</code></h4>
+  <p>Selecionam elementos que são filhos únicos do seu parente, no geral ou do seu tipo.</p>
+  <pre><code class="language-css">li:only-child {
+  list-style: none;
+}
+
+h2:only-of-type {
+  border-bottom: 2px solid #333;
+}</code></pre>
+
+  <h4><code>:empty</code></h4>
+  <p>Seleciona elementos que não têm filhos (incluindo nós de texto).</p>
+  <pre><code class="language-css">div:empty {
+  display: none;
+}</code></pre>
+
+  <h3>Pseudo-classes de Negação e Condicionais</h3>
+
+  <h4><code>:not()</code></h4>
+  <p>Seleciona elementos que não correspondem ao seletor especificado.</p>
+  <pre><code class="language-css">input:not([type="submit"]) {
+  border: 1px solid #ddd;
+}
+
+p:not(:first-child) {
+  margin-top: 1em;
+}</code></pre>
+
+  <h4><code>:is()</code> e <code>:where()</code></h4>
+  <p>Agrupamento de seletores, com <code>:is()</code> mantendo a especificidade do seletor mais forte e <code>:where()</code> tendo especificidade zero.</p>
+  <pre><code class="language-css">/* Equivalente a header p, main p, footer p */
+:is(header, main, footer) p {
+  line-height: 1.6;
+}
+
+/* Mesmo comportamento mas com especificidade zero */
+:where(header, main, footer) p {
+  font-size: 1rem;
+}</code></pre>
+
+  <h4><code>:has()</code></h4>
+  <p>Seleciona elementos que contêm pelo menos um elemento que corresponde ao seletor especificado.</p>
+  <pre><code class="language-css">/* Parágrafos que contêm imagens */
+p:has(img) {
+  display: flex;
+  align-items: center;
+}
+
+/* Artigos que contêm um cabeçalho h2 seguido de um parágrafo */
+article:has(h2 + p) {
+  padding: 20px;
+}</code></pre>
+
+  <h2>Pseudo-elementos</h2>
+  <p>Permitem estilizar partes específicas de um elemento ou gerar conteúdo que não existe explicitamente no DOM.</p>
+
+  <h3><code>::before</code> e <code>::after</code></h3>
+  <p>Criam elementos antes ou depois do conteúdo de um elemento, utilizados frequentemente com a propriedade <code>content</code>.</p>
+  <pre><code class="language-css">blockquote::before {
+  content: '"';
+  font-size: 2em;
+  color: #999;
+}
+
+a[href^="http"]::after {
+  content: " ↗";
+  color: #999;
+  font-size: 0.8em;
+}</code></pre>
+
+  <h3><code>::first-letter</code> e <code>::first-line</code></h3>
+  <p>Selecionam a primeira letra ou a primeira linha de texto dentro de um elemento.</p>
+  <pre><code class="language-css">p::first-letter {
+  font-size: 2em;
+  font-weight: bold;
+  float: left;
+  margin-right: 0.25em;
+}
+
+p::first-line {
+  font-variant: small-caps;
+}</code></pre>
+
+  <h3><code>::selection</code></h3>
+  <p>Seleciona a parte de um elemento que está selecionada pelo utilizador.</p>
+  <pre><code class="language-css">::selection {
+  background-color: #b3d4fc;
+  color: #000;
+  text-shadow: none;
+}</code></pre>
+
+  <h3><code>::placeholder</code></h3>
+  <p>Seleciona o texto indicativo (placeholder) dentro de um elemento input.</p>
+  <pre><code class="language-css">input::placeholder {
+  color: #999;
+  font-style: italic;
+}</code></pre>
+
+  <h3><code>::marker</code></h3>
+  <p>Seleciona o marcador de um item de lista (como bullets ou números).</p>
+  <pre><code class="language-css">li::marker {
+  color: #4a90e2;
+  font-weight: bold;
+}</code></pre>
+
+  <h2>Regras de Especificidade e Cascade</h2>
+  <p>A especificidade dos pseudo-seletores segue as regras padrão do CSS:</p>
+  <ul>
+    <li>Pseudo-classes têm a mesma especificidade que classes normais (0,0,1,0);</li>
+    <li>Pseudo-elementos têm a mesma especificidade que elementos normais (0,0,0,1);</li>
+    <li>O seletor <code>:not()</code> não adiciona especificidade, mas os seus argumentos são considerados;</li>
+    <li>O seletor <code>:where()</code> tem especificidade zero, independentemente dos seus argumentos;</li>
+    <li>O seletor <code>:is()</code> assume a maior especificidade dos seus argumentos.</li>
+  </ul>
+
+  <h2>Casos de Uso Comuns</h2>
+
+  <h3>Estilização Interativa</h3>
+  <pre><code class="language-css">/* Botão com efeitos de hover e active */
+.button {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.button:hover {
+  background-color: #3a80d2;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}</code></pre>
+
+  <h3>Validação de Formulários</h3>
+  <pre><code class="language-css">/* Estilização de campos baseada na validação */
+input {
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.3);
+  outline: none;
+}
+
+input:valid {
+  border-color: #4caf50;
+}
+
+input:invalid {
+  border-color: #f44336;
+}
+
+input:required {
+  background-image: url('asterisk.svg');
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 8px;
+  padding-right: 24px;
+}</code></pre>
+
+  <h3>Elementos Decorativos</h3>
+  <pre><code class="language-css">/* Adição de elementos decorativos sem alterar o HTML */
+.card {
+  position: relative;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #4a90e2, #9b59b6);
+  border-radius: 8px 8px 0 0;
+}
+
+.card.featured::after {
+  content: 'Em destaque';
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background-color: #e91e63;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 12px;
+}</code></pre>
+
+  <h3>Estilização Tabular e Listagens</h3>
+  <pre><code class="language-css">/* Estilização zebrada em tabelas */
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Destacar a primeira linha de uma tabela */
+tr:first-child {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Estilização de listas */
+ul li:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+ol li::marker {
+  color: #4a90e2;
+  font-weight: bold;
+}</code></pre>
+
+  <h2>Considerações de Compatibilidade</h2>
+  <p>Alguns pseudo-seletores mais recentes como <code>:has()</code>, <code>:is()</code> e <code>:where()</code> podem não ter suporte universal. É recomendada a verificação da compatibilidade antes da implementação e a consideração de alternativas para browsers não suportados.</p>
+
+  <h2>Metodologia de Implementação</h2>
+  <blockquote>
+    A aplicação eficaz de pseudo-seletores requer análise estratégica da estrutura do documento e interações do utilizador. Recomenda-se a utilização de pseudo-elementos para estilização decorativa e de pseudo-classes para estados interativos, minimizando a necessidade de classes JavaScript-dependentes e mantendo a separação entre estrutura e apresentação.
+  </blockquote>
+
+  <h2>Referências Bibliográficas</h2>
+  <ul>
+    <li><a href="https://developer.mozilla.org/pt-PT/docs/Web/CSS/Pseudo-classes" target="_blank">MDN Web Docs - Pseudo-classes</a></li>
+    <li><a href="https://developer.mozilla.org/pt-PT/docs/Web/CSS/Pseudo-elements" target="_blank">MDN Web Docs - Pseudo-elementos</a></li>
+    <li><a href="https://www.w3.org/TR/selectors-4/" target="_blank">W3C: Selectors Level 4</a></li>
+    <li><a href="https://css-tricks.com/pseudo-class-selectors/" target="_blank">CSS-Tricks: Pseudo Class Selectors</a></li>
+  </ul>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Funções CSS - Documentação Técnica</title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="template">
+
+  <h1>Funções CSS: Documentação Técnica</h1>
+
+  <p>As funções CSS são construções sintáticas que permitem a aplicação de valores computados dinamicamente a propriedades de estilo. Esta documentação descreve a implementação e utilização de funções CSS padrão.</p>
+
+  <h2>Definição e Escopo</h2>
+  <p>Funções CSS são expressões que retornam valores computados em tempo de renderização. Estas expressões são utilizadas em declarações CSS para permitir cálculos, manipulação de valores cromáticos, transformações e outras operações avançadas.</p>
+
+  <h2>Funções Matemáticas</h2>
+  
+  <h3><code>calc()</code></h3>
+  <p>Realiza operações aritméticas entre valores dimensionais, permitindo combinações entre unidades incompatíveis.</p>
+  <pre><code class="language-css">width: calc(100% - 50px);</code></pre>
+
+  <h3><code>min()</code></h3>
+  <p>Avalia e retorna o valor mínimo dentre os argumentos fornecidos.</p>
+  <pre><code class="language-css">width: min(80%, 600px);</code></pre>
+
+  <h3><code>max()</code></h3>
+  <p>Avalia e retorna o valor máximo dentre os argumentos fornecidos.</p>
+  <pre><code class="language-css">height: max(300px, 40vh);</code></pre>
+
+  <h3><code>clamp()</code></h3>
+  <p>Limita um valor entre limites inferior e superior, com valor preferencial intermediário.</p>
+  <pre><code class="language-css">font-size: clamp(1rem, 2.5vw, 2rem);</code></pre>
+
+  <h2>Funções de Cor</h2>
+
+  <h3><code>rgb()</code> e <code>rgba()</code></h3>
+  <p>Define valores cromáticos utilizando o modelo RGB (Vermelho, Verde, Azul) com parâmetros numéricos.</p>
+  <pre><code class="language-css">color: rgb(255, 0, 0); /* Vermelho */
+background-color: rgba(0, 0, 255, 0.5); /* Azul com 50% de opacidade */</code></pre>
+
+  <h3><code>hsl()</code> e <code>hsla()</code></h3>
+  <p>Define valores cromáticos utilizando o modelo HSL (Matiz, Saturação, Luminosidade) para maior controle perceptual.</p>
+  <pre><code class="language-css">color: hsl(120, 100%, 50%); /* Verde */
+background-color: hsla(240, 100%, 50%, 0.3); /* Azul com 30% de opacidade */</code></pre>
+
+  <h3><code>lab()</code> e <code>lch()</code></h3>
+  <p>Especifica cores utilizando espaços cromáticos perceptualmente uniformes, baseados no sistema CIE LAB e LCH.</p>
+  <pre><code class="language-css">color: lab(80% 20 40);
+background-color: lch(80% 30 45);</code></pre>
+
+  <h3><code>color-mix()</code></h3>
+  <p>Combina duas cores em uma proporção especificada, utilizando um espaço de cores designado.</p>
+  <pre><code class="language-css">color: color-mix(in srgb, #34c9eb 25%, white 75%);</code></pre>
+
+  <h2>Funções de Gradiente</h2>
+
+  <h3><code>linear-gradient()</code></h3>
+  <p>Gera uma imagem representando uma transição gradual entre dois ou mais valores cromáticos ao longo de um eixo linear.</p>
+  <pre><code class="language-css">background: linear-gradient(to right, red, yellow);</code></pre>
+
+  <h3><code>repeating-linear-gradient()</code></h3>
+  <p>Cria padrões repetitivos de gradientes lineares, definidos por pontos de parada cromáticos.</p>
+  <pre><code class="language-css">background: repeating-linear-gradient(45deg, #ccc, #ccc 10px, #fff 10px, #fff 20px);</code></pre>
+
+  <h3><code>radial-gradient()</code></h3>
+  <p>Gera uma imagem representando uma transição gradual entre dois ou mais valores cromáticos que emanam de um ponto central.</p>
+  <pre><code class="language-css">background: radial-gradient(circle, red, yellow);</code></pre>
+
+  <h3><code>repeating-radial-gradient()</code></h3>
+  <p>Cria padrões repetitivos de gradientes radiais, definidos por pontos de parada cromáticos concêntricos.</p>
+  <pre><code class="language-css">background: repeating-radial-gradient(circle, #ccc, #ccc 10px, #fff 10px, #fff 20px);</code></pre>
+
+  <h3><code>conic-gradient()</code></h3>
+  <p>Produz um gradiente que progride ao redor de um círculo, útil para criação de efeitos circulares como gráficos de pizza.</p>
+  <pre><code class="language-css">background: conic-gradient(red, yellow, green, blue, purple);</code></pre>
+
+  <h2>Funções de Atributo e Variáveis</h2>
+
+  <h3><code>attr()</code></h3>
+  <p>Recupera o valor de um atributo do elemento HTML associado e o incorpora como valor de propriedade CSS.</p>
+  <pre><code class="language-css">content: attr(data-label);</code></pre>
+
+  <h3><code>var()</code></h3>
+  <p>Implementa referências a propriedades personalizadas (variáveis CSS) definidas com prefixo duplo hífen.</p>
+  <pre><code class="language-css">:root {
+  --cor-principal: #0077cc;
+}
+button {
+  background-color: var(--cor-principal);
+}</code></pre>
+
+  <h3><code>env()</code></h3>
+  <p>Acessa variáveis de ambiente definidas pelo agente de usuário, frequentemente utilizadas para adaptações a características específicas de dispositivos.</p>
+  <pre><code class="language-css">padding: env(safe-area-inset-top);</code></pre>
+
+  <h2>Funções de Referência</h2>
+
+  <h3><code>url()</code></h3>
+  <p>Estabelece referência a um recurso externo através de seu identificador uniforme de recursos.</p>
+  <pre><code class="language-css">background-image: url('imagens/fundo.jpg');</code></pre>
+
+  <h2>Funções de Transformação</h2>
+
+  <h3><code>translate()</code>, <code>translateX()</code>, <code>translateY()</code>, <code>translateZ()</code>, <code>translate3d()</code></h3>
+  <p>Deslocam elementos no espaço bidimensional ou tridimensional, sem afetar o fluxo do documento.</p>
+  <pre><code class="language-css">transform: translate(50px, 20px);
+transform: translate3d(50px, 20px, 10px);</code></pre>
+
+  <h3><code>scale()</code>, <code>scaleX()</code>, <code>scaleY()</code>, <code>scaleZ()</code>, <code>scale3d()</code></h3>
+  <p>Modificam as dimensões de um elemento através de fatores de escala nos eixos correspondentes.</p>
+  <pre><code class="language-css">transform: scale(1.5);
+transform: scale3d(1.5, 0.8, 1);</code></pre>
+
+  <h3><code>rotate()</code>, <code>rotateX()</code>, <code>rotateY()</code>, <code>rotateZ()</code>, <code>rotate3d()</code></h3>
+  <p>Executam rotações em torno dos eixos especificados, expressas em graus, radianos ou rotações completas.</p>
+  <pre><code class="language-css">transform: rotate(45deg);
+transform: rotateY(0.5turn);</code></pre>
+
+  <h3><code>skew()</code>, <code>skewX()</code>, <code>skewY()</code></h3>
+  <p>Aplicam inclinações não proporcionais a elementos, alterando os ângulos entre eixos horizontais e verticais.</p>
+  <pre><code class="language-css">transform: skew(10deg, 20deg);
+transform: skewX(30deg);</code></pre>
+
+  <h3><code>matrix()</code>, <code>matrix3d()</code></h3>
+  <p>Implementam transformações através de matrizes de transformação homogêneas, permitindo combinações complexas de efeitos.</p>
+  <pre><code class="language-css">transform: matrix(1, 0.2, 0.2, 1, 10, 20);</code></pre>
+
+  <h2>Funções de Filtro</h2>
+
+  <h3><code>blur()</code></h3>
+  <p>Aplica desfoque gaussiano ao elemento, dispersando os valores cromáticos adjacentes.</p>
+  <pre><code class="language-css">filter: blur(5px);</code></pre>
+
+  <h3><code>brightness()</code></h3>
+  <p>Ajusta o brilho global do elemento, multiplicando os valores cromáticos pelo fator especificado.</p>
+  <pre><code class="language-css">filter: brightness(150%);</code></pre>
+
+  <h3><code>contrast()</code></h3>
+  <p>Modifica o contraste do elemento, ajustando a diferença entre valores claros e escuros.</p>
+  <pre><code class="language-css">filter: contrast(200%);</code></pre>
+
+  <h3><code>drop-shadow()</code></h3>
+  <p>Gera uma sombra projetada que segue o contorno alfa do elemento, não limitada a caixas retangulares.</p>
+  <pre><code class="language-css">filter: drop-shadow(3px 3px 4px rgba(0, 0, 0, 0.5));</code></pre>
+
+  <h3><code>grayscale()</code>, <code>sepia()</code>, <code>invert()</code></h3>
+  <p>Aplicam efeitos cromáticos predefinidos, convertendo para escala de cinza, tom sépia ou invertendo valores, respectivamente.</p>
+  <pre><code class="language-css">filter: grayscale(80%);
+filter: sepia(60%);
+filter: invert(100%);</code></pre>
+
+  <h2>Funções de Layout e Grid</h2>
+
+  <h3><code>fit-content()</code></h3>
+  <p>Calcula o tamanho de uma caixa baseado no conteúdo intrínseco, limitado por um valor máximo.</p>
+  <pre><code class="language-css">width: fit-content(300px);</code></pre>
+
+  <h3><code>minmax()</code></h3>
+  <p>Define um intervalo de tamanho entre valores mínimo e máximo, utilizado em especificações de layout grid.</p>
+  <pre><code class="language-css">grid-template-columns: minmax(100px, 1fr) 3fr;</code></pre>
+
+  <h3><code>repeat()</code></h3>
+  <p>Repete um padrão de valores, otimizando a declaração de estruturas regulares em layouts grid.</p>
+  <pre><code class="language-css">grid-template-columns: repeat(3, 1fr);</code></pre>
+
+  <h2>Funções de Contadores</h2>
+
+  <h3><code>counter()</code> e <code>counters()</code></h3>
+  <p>Recuperam e formatam valores de contadores CSS, permitindo numeração automática de elementos.</p>
+  <pre><code class="language-css">content: counter(section) "." counter(subsection);
+content: counters(item, ".") " ";</code></pre>
+
+  <h2>Funções de Temporização</h2>
+
+  <h3><code>cubic-bezier()</code></h3>
+  <p>Define uma função de temporização personalizada através de coordenadas de pontos de controle de uma curva de Bézier cúbica.</p>
+  <pre><code class="language-css">transition-timing-function: cubic-bezier(0.42, 0.0, 0.58, 1.0);</code></pre>
+
+  <h3><code>steps()</code></h3>
+  <p>Cria uma função de temporização segmentada que procede em incrementos discretos, útil para animações quadro a quadro.</p>
+  <pre><code class="language-css">transition-timing-function: steps(5, end);</code></pre>
+
+  <h2>Funções Lógicas (Nível Experimental)</h2>
+
+  <h3><code>toggle()</code></h3>
+  <p>Implementa alternância condicional entre valores, retornando o primeiro valor aplicável. Especificação em desenvolvimento com suporte limitado.</p>
+  <pre><code class="language-css">color: toggle(red, green, blue);</code></pre>
+
+  <h2>Metodologia de Implementação</h2>
+  <blockquote>
+    A implementação eficaz de funções CSS requer compreensão das interações entre valores computados e o modelo de renderização do navegador. Recomenda-se análise de comportamento entre diferentes agentes de usuário para garantir consistência.
+  </blockquote>
+
+  <h2>Referências Bibliográficas</h2>
+  <ul>
+    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Functions" target="_blank">MDN Web Docs - CSS Functions</a></li>
+    <li><a href="https://www.w3schools.com/css/css_functions.asp" target="_blank">W3Schools - CSS Functions</a></li>
+    <li><a href="https://www.w3.org/TR/css-values-4/" target="_blank">W3C: CSS Values and Units Module Level 4</a></li>
+  </ul>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</body>
+</html>
