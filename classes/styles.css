@@ -40,6 +40,7 @@ code {
     border: 1px solid rgb(126, 126, 0);
     padding: 0 6px;
     border-radius: 4px;
+    color: rgb(35, 35, 35);
 }
 
 ol li,

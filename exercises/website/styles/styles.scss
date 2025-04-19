@@ -1,0 +1,17 @@
+@import "reset";
+//@import "variables";
+@import "typography";
+//@import "layout";
+//@import "components";
+@import "colors";
+
+
+// Components
+@import "components/nav";
+@import "components/hero";
+@import "components/buttons";
+@import "components/featured-section";
+
+body {
+    background-color: var(--bg);
+}

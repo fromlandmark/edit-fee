@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,25 +9,28 @@
   <link rel="stylesheet" href="styles.css">
 
 </head>
+
 <body class="template">
 
   <h1>CSS Flexbox e Grid</h1>
 
-  <p>Uma análise técnica dos sistemas de layout CSS Flexbox e Grid, detalhando suas propriedades, comportamentos e aplicações em contextos de desenvolvimento web contemporâneo.</p>
-
   <h2>Definição e Scope</h2>
-  <p>Os modelos de layout Flexbox e Grid representam especificações do CSS projetadas para otimizar a distribuição de elementos em interfaces de usuário, oferecendo controlo preciso sobre alinhamento, ordenação e dimensionamento sem dependência de posicionamentos absolutos ou flutuações.</p>
+  <p>Os modelos de layout Flexbox e Grid representam especificações do CSS projetadas para otimizar a distribuição de
+    elementos em interfaces, oferecem controlo preciso sobre alinhamento, ordenação e dimensionamento sem dependência de
+    posicionamentos absolutos ou floats.</p>
 
-  <h2>CSS Flexbox (Flexible Box Layout)</h2>
+  <h2>CSS Flexbox</h2>
 
-  <p>O modelo Flexbox implementa um sistema unidimensional para controlo de layouts em linha ou coluna, otimizado para distribuição de espaço entre items num container, mesmo quando suas dimensões são desconhecidas ou dinâmicas.</p>
+  <p>O modelo Flexbox implementa um sistema unidimensional para controlo de layouts em linha ou coluna, otimizado para
+    distribuição de espaço entre items num container, mesmo quando suas dimensões são desconhecidas ou dinâmicas.</p>
 
   <h3>Propriedades do container Flex</h3>
 
   <h4><code>display: flex | inline-flex</code></h4>
-  <p>Estabelece um contexto de formatação flexível, transformando o elemento num container flex de nível de bloco ou de linha.</p>
-  <pre><code class="language-css">display: flex; /* container flex de nível de bloco */
-display: inline-flex; /* container flex de nível de linha */</code></pre>
+  <p>Estabelece um contexto de formatação flexível, transformando o elemento num container flex de nível de block ou
+    inline.</p>
+  <pre><code class="language-css">display: flex; /* container flex de nível de block */
+display: inline-flex; /* container flex de nível inline */</code></pre>
 
   <h4><code>flex-direction</code></h4>
   <p>Define o eixo principal do container, determinando a direção em que os items flex são posicionados.</p>
@@ -36,7 +40,8 @@ flex-direction: column; /* Cima para baixo */
 flex-direction: column-reverse; /* Baixo para cima */</code></pre>
 
   <h4><code>flex-wrap</code></h4>
-  <p>Controla o comportamento de transbordo dos items flex quando estes excedem as dimensões do container no eixo principal.</p>
+  <p>Controla o comportamento de transbordo dos items flex quando estes excedem as dimensões do container no eixo
+    principal.</p>
   <pre><code class="language-css">flex-wrap: nowrap; /* Padrão: items numa única linha */
 flex-wrap: wrap; /* items quebram para linhas adicionais */
 flex-wrap: wrap-reverse; /* items quebram em ordem reversa */</code></pre>
@@ -63,7 +68,8 @@ align-items: center; /* items centralizados no eixo transversal */
 align-items: baseline; /* items alinhados pela linha de base textual */</code></pre>
 
   <h4><code>align-content</code></h4>
-  <p>Especifica a distribuição de espaço entre e ao redor das linhas flex quando há espaço extra no eixo transversal.</p>
+  <p>Especifica a distribuição de espaço entre e ao redor das linhas flex quando há espaço extra no eixo transversal.
+  </p>
   <pre><code class="language-css">align-content: stretch; /* Padrão: linhas esticadas para ocupar o espaço disponível */
 align-content: flex-start; /* Linhas empacotadas no início */
 align-content: flex-end; /* Linhas empacotadas no final */
@@ -74,7 +80,8 @@ align-content: space-around; /* Linhas com espaço igual ao redor delas */</code
   <h3>Propriedades dos items Flex</h3>
 
   <h4><code>order</code></h4>
-  <p>Controla a sequência de renderização dos items flex, permitindo reordenação visual sem alterar a estrutura do DOM.</p>
+  <p>Controla a sequência de renderização dos items flex, permitindo reordenação visual sem alterar a estrutura do DOM.
+  </p>
   <pre><code class="language-css">order: 0; /* Padrão: posição baseada na ordem do documento */
 order: 1; /* Posicionado após items com valores menores */
 order: -1; /* Posicionado antes de items com valores maiores */</code></pre>
@@ -98,14 +105,16 @@ flex-basis: 0; /* Tamanho inicial zero, distribuição baseada apenas em flex-gr
 flex-basis: 100px; /* Tamanho inicial específico */</code></pre>
 
   <h4><code>flex</code></h4>
-  <p>Propriedade abreviada que combina <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code> numa única declaração.</p>
+  <p>Propriedade abreviada que combina <code>flex-grow</code>, <code>flex-shrink</code> e <code>flex-basis</code> numa
+    única declaração.</p>
   <pre><code class="language-css">flex: 0 1 auto; /* Padrão: não cresce, contrai se necessário, tamanho base auto */
 flex: 1; /* Equivalente a flex: 1 1 0 - cresce e contrai uniformemente */
 flex: auto; /* Equivalente a flex: 1 1 auto - baseado no conteúdo, mas flexível */
 flex: none; /* Equivalente a flex: 0 0 auto - completamente inflexível */</code></pre>
 
   <h4><code>align-self</code></h4>
-  <p>Substitui o alinhamento padrão para items flex individuais, sobrescrevendo o valor de <code>align-items</code> do container.</p>
+  <p>Substitui o alinhamento padrão para items flex individuais, sobrescrevendo o valor de <code>align-items</code> do
+    container.</p>
   <pre><code class="language-css">align-self: auto; /* Padrão: segue o valor align-items do container */
 align-self: flex-start; /* Alinhado ao início do eixo transversal */
 align-self: flex-end; /* Alinhado ao final do eixo transversal */
@@ -133,17 +142,19 @@ align-self: stretch; /* Esticado para preencher o container no eixo transversal 
 
   <h2>CSS Grid Layout</h2>
 
-  <p>O sistema Grid implementa um modelo bidimensional que permite controlo simultâneo sobre linhas e colunas, possibilitando posicionamento preciso e alinhamento de elementos em layouts complexos.</p>
+  <p>O sistema Grid implementa um modelo bidimensional que permite controlo simultâneo sobre linhas e colunas,
+    possibilitando posicionamento preciso e alinhamento de elementos em layouts complexos.</p>
 
   <h3>Propriedades do container Grid</h3>
 
   <h4><code>display: grid | inline-grid</code></h4>
-  <p>Estabelece um contexto de formatação grid, transformando o elemento num container grid de nível de bloco ou de linha.</p>
+  <p>Estabelece um contexto de formatação grid, transformando o elemento num container grid de nível de bloco ou de
+    linha.</p>
   <pre><code class="language-css">display: grid; /* container grid de nível de bloco */
 display: inline-grid; /* container grid de nível de linha */</code></pre>
 
   <h4><code>grid-template-columns</code> e <code>grid-template-rows</code></h4>
-  <p>Definem as colunas e linhas do grid com uma lista de valores representando o tamanho de cada trilha.</p>
+  <p>Definem as colunas e linhas do grid com uma lista de valores representando o tamanho de cada track-size.</p>
   <pre><code class="language-css">grid-template-columns: 100px 200px 100px; /* Três colunas com tamanhos fixos */
 grid-template-rows: auto 200px; /* Duas linhas: primeira automática, segunda fixa */
 
@@ -162,7 +173,8 @@ grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Colunas respons
   "footer footer footer";</code></pre>
 
   <h4><code>grid-template</code></h4>
-  <p>Propriedade abreviada que combina <code>grid-template-rows</code>, <code>grid-template-columns</code> e <code>grid-template-areas</code> numa única declaração.</p>
+  <p>Propriedade abreviada que combina <code>grid-template-rows</code>, <code>grid-template-columns</code> e
+    <code>grid-template-areas</code> numa única declaração.</p>
   <pre><code class="language-css">grid-template:
   "header header header" 100px
   "sidebar content content" auto
@@ -178,8 +190,10 @@ grid-row-gap: 15px; /* Espaço entre linhas */</code></pre>
   <p>Propriedade abreviada para <code>grid-row-gap</code> e <code>grid-column-gap</code>.</p>
   <pre><code class="language-css">grid-gap: 15px 20px; /* Espaço entre linhas e colunas, respectivamente */
 grid-gap: 10px; /* Mesmo espaço para linhas e colunas */</code></pre>
-  
-  <p>Nota: As propriedades <code>grid-column-gap</code>, <code>grid-row-gap</code> e <code>grid-gap</code> foram renomeadas para <code>column-gap</code>, <code>row-gap</code> e <code>gap</code>, respectivamente, mas as versões prefixadas são mantidas para compatibilidade.</p>
+
+  <p>Nota: As propriedades <code>grid-column-gap</code>, <code>grid-row-gap</code> e <code>grid-gap</code> foram
+    renomeadas para <code>column-gap</code>, <code>row-gap</code> e <code>gap</code>, respectivamente, mas as versões
+    prefixadas são mantidas para compatibilidade.</p>
 
   <h4><code>justify-items</code></h4>
   <p>Alinha os items do grid horizontalmente dentro de suas células.</p>
@@ -224,7 +238,8 @@ align-content: space-evenly; /* Espaço distribuído uniformemente */</code></pr
 place-content: space-between; /* Espaço distribuído em ambas as direções */</code></pre>
 
   <h4><code>grid-auto-columns</code> e <code>grid-auto-rows</code></h4>
-  <p>Definem o tamanho das colunas e linhas geradas automaticamente quando items são posicionados fora do grid explicitamente definido.</p>
+  <p>Definem o tamanho das colunas e linhas geradas automaticamente quando items são posicionados fora do grid
+    explicitamente definido.</p>
   <pre><code class="language-css">grid-auto-columns: 100px; /* Colunas implícitas com 100px */
 grid-auto-rows: minmax(100px, auto); /* Linhas implícitas com mínimo de 100px */</code></pre>
 
@@ -236,14 +251,17 @@ grid-auto-flow: dense; /* Algoritmo denso que tenta preencher lacunas */
 grid-auto-flow: row dense; /* Preenche por linhas com algoritmo denso */</code></pre>
 
   <h4><code>grid</code></h4>
-  <p>Propriedade abreviada para todas as propriedades explícitas do grid (<code>grid-template-rows</code>, <code>grid-template-columns</code>, <code>grid-template-areas</code>) e implícitas (<code>grid-auto-rows</code>, <code>grid-auto-columns</code>, <code>grid-auto-flow</code>).</p>
+  <p>Propriedade abreviada para todas as propriedades explícitas do grid (<code>grid-template-rows</code>,
+    <code>grid-template-columns</code>, <code>grid-template-areas</code>) e implícitas (<code>grid-auto-rows</code>,
+    <code>grid-auto-columns</code>, <code>grid-auto-flow</code>).</p>
   <pre><code class="language-css">grid: 100px 300px / 3fr 1fr; /* Define duas linhas e duas colunas */
 grid: auto-flow / 200px 1fr; /* Auto-flow por linhas com duas colunas definidas */
 grid: auto-flow dense 100px / 1fr 2fr; /* Auto-flow denso com linhas de 100px e duas colunas */</code></pre>
 
   <h3>Propriedades dos items Grid</h3>
 
-  <h4><code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-row-start</code>, <code>grid-row-end</code></h4>
+  <h4><code>grid-column-start</code>, <code>grid-column-end</code>, <code>grid-row-start</code>,
+    <code>grid-row-end</code></h4>
   <p>Especificam a localização de um item grid dentro do grid definindo as linhas de início e fim do item.</p>
   <pre><code class="language-css">grid-column-start: 2; /* Inicia na linha vertical 2 */
 grid-column-end: 4; /* Termina na linha vertical 4 */
@@ -255,7 +273,8 @@ grid-column-end: span 2; /* Ocupa duas células horizontalmente */
 grid-row-end: span 3; /* Ocupa três células verticalmente */</code></pre>
 
   <h4><code>grid-column</code> e <code>grid-row</code></h4>
-  <p>Propriedades abreviadas para <code>grid-column-start</code>/<code>grid-column-end</code> e <code>grid-row-start</code>/<code>grid-row-end</code>, respectivamente.</p>
+  <p>Propriedades abreviadas para <code>grid-column-start</code>/<code>grid-column-end</code> e
+    <code>grid-row-start</code>/<code>grid-row-end</code>, respectivamente.</p>
   <pre><code class="language-css">grid-column: 2 / 4; /* De coluna 2 até coluna 4 */
 grid-row: 1 / 3; /* De linha 1 até linha 3 */
 
@@ -264,7 +283,8 @@ grid-column: 2 / span 2; /* Inicia na coluna 2 e ocupa 2 células */
 grid-row: 1 / -1; /* Inicia na linha 1 e vai até a última linha */</code></pre>
 
   <h4><code>grid-area</code></h4>
-  <p>Especifica o posicionamento e tamanho de um item grid, seja por referência a um nome de área ou definindo as coordenadas de grid.</p>
+  <p>Especifica o posicionamento e tamanho de um item grid, seja por referência a um nome de área ou definindo as
+    coordenadas de grid.</p>
   <pre><code class="language-css">grid-area: header; /* Posiciona o item na área nomeada "header" */
 grid-area: 1 / 2 / 3 / 4; /* Equivalente a grid-row-start: 1; grid-column-start: 2; grid-row-end: 3; grid-column-end: 4; */</code></pre>
 
@@ -342,27 +362,35 @@ place-self: center; /* Centralizado em ambas as direções */</code></pre>
     <li>Posicionamento preciso de elementos;</li>
     <li>Sobreposição intencional de elementos;</li>
     <li>Layouts complexos com áreas nomeadas;</li>
-    <li>Sistemas de grade responsivos;</li>
+    <li>Sistemas de grelha responsivos;</li>
     <li>Layouts assimétricos com alinhamento preciso.</li>
   </ul>
 
   <h3>Considerações de Desempenho</h3>
-  <p>Ambos os modelos de layout apresentam desempenho de renderização otimizado em navegadores modernos. A escolha entre eles deve ser orientada pela complexidade do layout e requisitos de alinhamento, não por preocupações de desempenho.</p>
+  <p>Ambos os modelos de layout apresentam desempenho de renderização otimizado em navegadores modernos. A escolha entre
+    eles deve ser orientada pela complexidade do layout e requisitos de alinhamento, não por preocupações de desempenho.
+  </p>
 
   <h2>Metodologia de Implementação</h2>
   <blockquote>
-    A aplicação adequada dos sistemas Flexbox e Grid requer análise da estrutura hierárquica dos elementos e suas relações dimensionais. É recomendada a combinação estratégica de ambos os modelos, utilizando Grid para o layout macro da página e Flexbox para componentes individuais com distribuição linear.
+    A aplicação adequada dos sistemas Flexbox e Grid requer análise da estrutura hierárquica dos elementos e suas
+    relações dimensionais. É recomendada a combinação estratégica de ambos os modelos, utilizando Grid para o layout
+    macro da página e Flexbox para componentes individuais com distribuição linear.
   </blockquote>
 
   <h2>Referências Bibliográficas</h2>
   <ul>
-    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank">MDN Web Docs - CSS Flexible Box Layout</a></li>
-    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Grid_Layout" target="_blank">MDN Web Docs - CSS Grid Layout</a></li>
-    <li><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">W3C: CSS Flexible Box Layout Module Level 1</a></li>
+    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Flexible_Box_Layout" target="_blank">MDN Web Docs
+        - CSS Flexible Box Layout</a></li>
+    <li><a href="https://developer.mozilla.org/pt-BR/docs/Web/CSS/CSS_Grid_Layout" target="_blank">MDN Web Docs - CSS
+        Grid Layout</a></li>
+    <li><a href="https://www.w3.org/TR/css-flexbox-1/" target="_blank">W3C: CSS Flexible Box Layout Module Level 1</a>
+    </li>
     <li><a href="https://www.w3.org/TR/css-grid-1/" target="_blank">W3C: CSS Grid Layout Module Level 1</a></li>
   </ul>
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
   <script>hljs.highlightAll();</script>
 </body>
+
 </html>

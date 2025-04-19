@@ -1,0 +1,20 @@
+$colors: (
+    'bg': #f7f7f7,
+    'black': black,
+    'black-3': #00000080,
+    'borders': #00000014,
+    'black-2': #000c,
+    'alt-bg': #ededed,
+    'off-white': #f1f1f1,
+    'accent': #ea5d31,
+    'alt-bg-2': #f0f0f0,
+    'ultra-light-text': #777,
+    'borders-dark-bg': #ffffff0d,
+    'figma-purple': #8d4cf6
+);
+
+:root {
+    @each $name, $color in $colors {
+        --#{$name}: #{$color};
+    }
+}
