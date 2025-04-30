@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<body>
+    <style>
+        
+        * {
+            box-sizing: border-box;
+        }
+        .container {
+            font-size: 20px;
+            background: red;
+            color: blue;
+            width: 10rem;
+            height: 10rem;
+            padding: 16px;
+            border: 4px solid black;
+        }
+
+        .wrapper {
+            font-size: 0.5em;
+        }
+       
+        .wrapper p {
+            font-size: 1em;
+        }
+      
+    </style>
+   
+    <div class="container">
+        <!-- 1rem === 16px / 2 = 8px === 100% -->
+       <div class="wrapper"> <!-- filho -->
+            <p>errado</p>
+            <p>filho</p>
+       </div>
+    </div>
+</body>
+</html>

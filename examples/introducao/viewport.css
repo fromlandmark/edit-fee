@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* 
+body {
+    height: 500px
+} */
+
+.container {
+    /* width: 200px; */
+    /* vh, vw, dvw, dvh === viewport.
+    vh === viewport height
+    vw === viewport width
+    dvh === device viewport height
+    dvw === device viewport width
+    */
+    width: 100vw;
+    /** 100% da largura da caixa branca que é o viewport */
+
+    height: 50vh;
+    background: red;
+}
+
+.wrapper {
+    background: blue;
+    height: 50%;
+}
