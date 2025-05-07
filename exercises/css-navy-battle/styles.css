@@ -22,6 +22,7 @@ body {
     flex-wrap: wrap;
     border-radius: 12px;
     overflow: hidden;
+
 }
 
 .cell {
@@ -52,7 +53,10 @@ pre {
 
 
 /* Coloca o teu CSS a partir daqui */
-.ball-0 {}
+.ball-0 {
+    position: absolute;
+    left: calc(3 * 40px);
+}
 
 .ball-1 {}
 
