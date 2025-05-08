@@ -12,24 +12,3 @@ button {
     border: none;
     font-size: 2rem;
 }
-
-.btn--hovered {
-    background: blue;
-}
-
-.btn--active {
-    background: darkblue
-}
-
-button:hover {
-    background: blue;
-    cursor: pointer;
-}
-
-button:active {
-    background: darkblue
-}
-
-button:disabled {
-    background: darkgray;
-}

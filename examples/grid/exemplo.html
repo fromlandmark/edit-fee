@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: grid;
+            place-items: center;
+        }
+
+        .grelha {
+            width: 500px;
+            height: 500px;
+             display: grid;
+            /* grid-template-columns */
+            /* grid-template-rows */
+            /* repeat(n, value) */
+            grid-template-columns: repeat(10, 1fr);
+            grid-template-rows: 100px 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            gap: 10px 20px;
+        }
+
+        .filho {
+            border-radius: 8px;
+            background: blue;
+        }
+
+        .sidebar {
+            background: red;
+            grid-column: 1 / 2;
+            grid-row: 1 / -1;
+        }
+
+        .nav {
+            background: green;
+            grid-row: 1 / 1;
+            grid-column: 2 / -1;
+            padding: 12px;
+        }
+
+        .main {
+    background: orange;
+    grid-column: 2 / -1;
+    grid-row: 2 / -1;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+
+    </style>
+    <div class="grelha">
+        <div class="filho sidebar"></div>
+        <div class="filho nav">
+            <ul>
+                <li>Home</li>
+                <li>About</li>
+                <li>Contact</li>
+            </ul>
+        </div>
+        <div class="filho main"></div>
+
+    </div>
+</body>
+
+</html>

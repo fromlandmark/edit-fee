@@ -15,11 +15,7 @@ html {
     padding: 16px;
 }
 
-body {
-    container-type: inline-size;
-    container-name: body;
-
-}
+body {}
 
 .cards {
     display: flex;
@@ -29,12 +25,7 @@ body {
     gap: 1rem;
     padding: 1rem;
     width: clamp(600px, 100dvw, 1000px);
-    container-type: inline-size;
-    container-name: cards;
 
-    @container (max-width: 600px) {
-        width: 100%;
-    }
 }
 
 .card {
@@ -43,23 +34,11 @@ body {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: calc(25% - 1rem);
-
-    @container body (max-width:600px) {
-        background: red;
-
-    }
-
-    @container (max-width: calc(800px - 2rem)) {
-
-        width: calc(50% - 1rem);
-    }
+    /* width: calc(25% - 1rem); */
+    width: 100%;
 
 
-    @container (max-width: calc(600px - 2rem)) {
 
-        width: calc(100% - 1rem);
-    }
 }
 
 .thumbnail {
@@ -93,16 +72,4 @@ p {
 
 .text * {
     line-height: 2;
-}
-
-.clamp {
-    width: clamp(600px, 100%, 1000px);
-}
-
-.min {
-    width: min(1000px, 100%)
-}
-
-.max {
-    width: max(1000px, 100%)
 }

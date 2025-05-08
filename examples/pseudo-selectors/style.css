@@ -1,11 +1,13 @@
-.first .child:first-child {
-    background: red;
+table {
+    border-collapse: collapse;
 }
 
-.last .child:last-child {
-    background: red;
+tr {
+    text-align: left;
+    border-bottom: 1px solid #ddd;
 }
 
-.nth .child:nth-child(2) {
-    background: red;
+td,
+th {
+    padding: 12px;
 }

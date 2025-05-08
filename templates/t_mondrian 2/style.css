@@ -1,0 +1,101 @@
+.board-3 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 10px;
+}
+
+.board-3 .red {
+    grid-row: 1 / -1;
+    grid-column: 1 / 3;
+}
+
+.board-3 .orange {
+
+    /* posicionamento dele com o pai */
+    grid-row: 1 / -1;
+    grid-column: 3 / -1;
+
+    /* A definição da grelha para os filhos usarem */
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-template-rows: subgrid;
+    gap: 10px;
+}
+
+.board-3 .orange .sub-area:nth-child(1 of .red) {
+    grid-row: 1 / 3;
+    grid-column: 1 / -1;
+}
+
+.board-3 .orange .sub-area:nth-child(2 of .red) {
+    grid-row: 3 / 5;
+    grid-column: 1 / 4;
+}
+
+.board-3 .orange .sub-area.blue {
+    grid-row: 7 / -1;
+    grid-column: 1 / -1;
+}
+
+
+
+.board-7 {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    gap: 10px;
+    grid-template-areas:
+        "a a a a a b b b"
+        "a a a a a b b b"
+        "c c c c d d d d"
+        "c c c c d d d d"
+        "e e e e d d d d"
+        "e e e e f f f f"
+        "e e e e f f f f"
+        "g g g g g g g g"
+}
+
+
+.board-7 .area:nth-child(1) {
+    grid-area: a;
+}
+
+.board-7 .area:nth-child(2) {
+    grid-area: b;
+}
+
+.board-7 .area:nth-child(3) {
+    grid-area: c;
+}
+
+.board-7 .area:nth-child(4) {
+    grid-area: d;
+}
+
+.board-7 .area:nth-child(5) {
+    grid-area: e;
+}
+
+.board-7 .area:nth-child(6) {
+    grid-area: f;
+}
+
+.board-7 .area:nth-child(7) {
+    grid-area: g;
+}
+
+@media all and (max-width: 768px) {
+    .board-7 {
+        display: grid;
+        grid-template-areas:
+            "a a a a a a b b"
+            "a a a a a a b b"
+            "c c c c c c d d"
+            "c c c c c c d d"
+            "e e e e d d d d"
+            "e e e e f f f f"
+            "e e e e f f f f"
+            "g g g g g g g g"
+    }
+}
