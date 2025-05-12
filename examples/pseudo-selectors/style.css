@@ -11,3 +11,24 @@ td,
 th {
     padding: 12px;
 }
+
+.child::before {
+    content: attr(data-title)
+}
+
+.bar {
+    width: 300px;
+    height: 12px;
+    background: gainsboro;
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+}
+
+.bar::after {
+    content: '';
+    display: block;
+    width: var(--value);
+    height: 100%;
+    background: red;
+}

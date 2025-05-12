@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,52 +8,178 @@
     <link rel="stylesheet" href="../general.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body> 
 
-    <div class="container">
-    <table>
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Age</th>
-                <th>City</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>John Doe</td>
-                <td>25</td>
-                <td>New York</td>
-            </tr>
-            <tr>
-                <td>Jane Smith</td>
-                <td>30</td>
-                <td>Los Angeles</td>
-            </tr>
-            <tr>
-                <td>Bob Johnson</td>
-                <td>28</td>
-                <td>Chicago</td>
-            </tr>
-        </tbody>
-    </table>
-    </div>
-    <div class="container container-flex first" data-title="first-child">
+<body>
 
-        <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li> 
-        </ul>
-    </div>
+    <!-- <div class="container">
 
-    <div class="container container-flex first" data-title="first-child">
         <style>
+            label {
+                width: 100px;
+                height: 50px;
+                background: gainsboro;
+                color: black;
+                border-radius: 4px;
+                display: grid;
+                place-items: center
+            }
+            label {
+                display: grid;
+                align-items: center;
+                gap: 0.5rem;
+                text-align: center;
+                transition: background .4s;
+            }
+
+            label:hover {
+                background: gray;
+                cursor: pointer;
+            }
+
+            label:has(input:checked) {
+                background: red;
+            }
+            
+            label input {
+                display: none;
+            }
             
         </style>
-        <div class="child"></div>
-        <div class="child"></div>
-        <div class="child"></div>
+          
+            <label for="radio-1">
+                <span>Opção 1</span>
+                  <input type="radio" value="massa" id="radio-1" name="comida">
+            </label>
+
+            <label for="radio-2">
+                <span>Opção 2</span>
+                  <input type="radio" value="arroz" id="radio-2" name="comida">
+            </label>
+       
+            <script>
+                const inputs = document.querySelectorAll('input');
+                inputs.forEach(input => {
+                    input.addEventListener('change', (e) => {
+                        console.log(e.target.value);
+                    })
+                })
+            </script>
+
+
+    </div> -->
+    <!-- <div class="container">
+        <style>
+            :is(h1, h2.minus, h3, h2) {
+                color: red;
+            }
+        </style>
+        <h1>Hello</h1>
+        <h2 class="add">Hello</h2>
+        <h3>Hello</h3>
+    </div>
+    <div class="container">
+        <style>
+            /* :is, :has, :where */
+            input {
+                padding: 1rem;
+                outline: none;
+            }
+
+            .form__field:has(input:invalid) {
+                border: 10px solid white;
+            }
+
+
+            /* input:is([type="email"]) {
+                border: 4px solid red;
+            } */
+        </style>
+
+        <div class="form__field">
+            <input type="email" class="add" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="Enter your email">
+        </div>
+    </div>
+    </div>
+    <div class="container">
+        <style>
+            tr:not(:has(th)):nth-child(odd) {
+                background: red;
+            } 
+        </style>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>John Doe</td>
+                    <td>25</td>
+                    <td>New York</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>30</td>
+                    <td>Los Angeles</td>
+                </tr>
+                <tr>
+                    <td>Bob Johnson</td>
+                    <td>28</td>
+                    <td>Chicago</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container container-flex first" data-title="first-child">
+        <style>
+            ul {
+                list-style: none;
+            }
+
+            ul:has(li.item) {
+                border: 1px solid white;
+            }
+            li:is(.item) {
+                color: red;
+            }
+
+            ul:is(.add) {
+                background: orange;
+            }
+            /* li {
+                padding: 0.5rem;
+
+                &:is(:first-child) {
+                    background: blue;
+                }
+
+                &:not(:last-child) {
+                    border-bottom: 1px solid rgb(255, 255, 255);
+                }
+            } */
+        </style>
+        <ul class="add" >
+            <li class="item add">Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+        </ul>
+    </div> -->
+
+    <div class="container">
+        <div class="bar" style="--value: 20%"></div>
+    </div>
+    <div class="container container-flex first" data-title="first-child">
+        <style>
+
+        </style>
+        <div class="child" data-title="agora-1" data-price="123"></div>
+        <div class="child" data-title="agora-2"></div>
+        <div class="child" data-title="agora"></div>
     </div>
 
     <div class="container container-flex last" data-title="last-child">
@@ -61,12 +188,13 @@
         <div class="child"></div>
     </div>
 
-     <div class="container container-flex nth" data-title="nth-child 2">
+    <div class="container container-flex nth" data-title="nth-child 2">
         <div class="child"></div>
         <div class="child"></div>
         <div class="child"></div>
     </div>
 
-     <div class="container container-flex empty" data-title="empty"></div>
+    <div class="container container-flex empty" data-title="empty"></div>
 </body>
+
 </html>
