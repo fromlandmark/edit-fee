@@ -2,7 +2,7 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 html,
@@ -48,7 +48,7 @@ h3 {
   content: attr(data-title);
   position: absolute;
   -webkit-transform: translate(0, -32px);
-  transform: translate(0, -32px);
+          transform: translate(0, -32px);
   color: white;
   left: 0;
   top: 0;
@@ -59,11 +59,11 @@ h3 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .child {
@@ -78,11 +78,10 @@ h3 {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 8px;
   width: 100px;
   height: 100px;
 }
-
 /*# sourceMappingURL=general.css.map */

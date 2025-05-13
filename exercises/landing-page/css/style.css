@@ -171,10 +171,9 @@ nav {
 }
 
 nav .nav__logo .logo {
-  width: 40px;
+  width: 100px;
   height: 40px;
   border-radius: 100%;
-  background: #e6e6e6;
   display: block;
 }
 
@@ -447,7 +446,7 @@ nav .nav__items .nav__item:hover .nav__item_group {
 }
 
 .exploring-solutions {
-  margin: 64px auto 0 auto;
+  margin: 128px auto 64px auto;
   text-align: center;
 }
 
@@ -480,7 +479,7 @@ nav .nav__items .nav__item:hover .nav__item_group {
   margin: 8px;
   width: calc(100% / 3 - 16px);
   text-align: center;
-  border: 1px solid #fafafa;
+  border: 1px solid #e2e2e2;
   border-radius: 4px;
   max-width: 300px;
   display: -webkit-box;
@@ -582,6 +581,8 @@ nav .nav__items .nav__item:hover .nav__item_group {
   height: 150px;
   background: gainsboro;
   margin-bottom: 12px;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .articles__wrapper .article .article__keywords {
@@ -609,10 +610,14 @@ nav .nav__items .nav__item:hover .nav__item_group {
 
 .articles__wrapper .article .article__owner__thumbnail {
   height: 28px;
-  display: block;
   width: 28px;
   background: gainsboro;
   border-radius: 100%;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  text-align: center;
 }
 
 .articles__wrapper .article .article__owner__name {

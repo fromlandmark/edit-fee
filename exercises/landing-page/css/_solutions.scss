@@ -1,5 +1,5 @@
 .exploring-solutions {
-	margin: 64px auto 0 auto;
+	margin: 128px auto 64px auto;
 	text-align: center;
 	.cards__container {
 		position: relative;
@@ -17,7 +17,7 @@
 				margin: 8px;
 				width: calc(100% / 3 - 16px);
 				text-align: center;
-				border: 1px solid #fafafa;
+				border: 1px solid #e2e2e2;
 				border-radius: 4px;
 				max-width: 300px;
 				display: flex;

@@ -19,6 +19,7 @@
             height: 150px;
             background: gainsboro;
             margin-bottom: 12px;
+            object-fit: cover;
         }
         .article__keywords {
             display: flex;
@@ -35,10 +36,13 @@
             align-items: center;
             &__thumbnail {
                 height: 28px;
-                display: block;
                 width: 28px;
                 background: gainsboro;
                 border-radius: 100%;
+                display: grid;
+                place-items: center;
+                font-size: 12px;
+                text-align: center;
             }
             &__name {
                 font-size: 14px;
